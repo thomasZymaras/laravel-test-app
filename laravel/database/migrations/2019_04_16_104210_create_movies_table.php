@@ -17,7 +17,7 @@ class CreateMoviesTable extends Migration
             $table->bigIncrements('id')->autoIncrement();
             $table->string('uid', 255)->unique()->index('uid_index');
             $table->string('title', 255);
-            $table->string('slug', 255);
+            $table->string('slug', 255)->index('slug_index');
             $table->dateTimeTz('releaseDate');
             $table->string('posterURL', 255);
             $table->string('backdropUrl', 255);

@@ -6,7 +6,6 @@ use App\Services\MoviesApiHttpClient;
 use App\Services\MoviesImporter;
 use GuzzleHttp\Exception\TransferException;
 use Illuminate\Console\Command;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Class ImportMovies
@@ -53,6 +52,7 @@ class ImportMovies extends Command
             $moviesData = $httpClient->getAllMovies();
         } catch (TransferException $exception) {
             $this->error($exception->getMessage());
+            exit();
         }
 
         $this->info('Importing data');
